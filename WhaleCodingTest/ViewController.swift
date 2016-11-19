@@ -22,8 +22,6 @@ class ViewController: UIViewController {
     let maxVideoDuration = CMTime(seconds: 60, preferredTimescale: 1)
     
     @IBOutlet weak var videoSegmentProgressBar: VideoSegmentProgressBar!
-    
-    var segmentedProgressViews = [UIView]()
 
     var videoSegments = [AVAsset]()
     
@@ -77,7 +75,6 @@ class ViewController: UIViewController {
     func setupCaptureSession() {
         captureSession.sessionPreset = AVCaptureSessionPreset1280x720
         
-        // TODO: check if mic is automatically added as well
         let cameraDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         let micDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeAudio)
         
@@ -234,6 +231,8 @@ class ViewController: UIViewController {
     }
 }
 
+// MARK: - AVCaptureFileOutputRecordingDelegate
+
 extension ViewController: AVCaptureFileOutputRecordingDelegate {
     func capture(_ captureOutput: AVCaptureFileOutput!, didStartRecordingToOutputFileAt fileURL: URL!, fromConnections connections: [Any]!) {
         updateRecordingValues()
@@ -256,6 +255,6 @@ extension ViewController: AVCaptureFileOutputRecordingDelegate {
         
         videoSegmentProgressBar.newVideoSegmentProgressView()
         
-        nextBarButtonItem.isEnabled = !videoSegments.isEmpty ? true : false
+        nextBarButtonItem.isEnabled = true
     }
 }
