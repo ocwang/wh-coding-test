@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     
     let maxVideoDuration = CMTime(seconds: 60, preferredTimescale: 1)
     
-    var currentProgressViewWidthConstraint: NSLayoutConstraint?
+    @IBOutlet weak var videoSegmentProgressBar: VideoSegmentProgressBar!
     
     var segmentedProgressViews = [UIView]()
 
@@ -49,8 +49,6 @@ class ViewController: UIViewController {
         
         setupCaptureSession()
         setupPreviewLayer()
-        // add initial progress view segment
-        addSegmentedProgressView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -123,37 +121,11 @@ class ViewController: UIViewController {
             let maxDurationInSeconds = CMTimeGetSeconds(maxVideoDuration)
             print("seconds:", seconds)
             
-            currentProgressViewWidthConstraint!.constant = CGFloat(seconds) / CGFloat(maxDurationInSeconds) * view.bounds.width
-            
+            let currentProgressViewWidth = CGFloat(seconds / maxDurationInSeconds) * view.bounds.width
+            videoSegmentProgressBar.updateCurrentVideoSegmentProgressView(toWidth: currentProgressViewWidth)
+        
             perform(#selector(self.updateRecordingValues), with: nil, afterDelay: 0.1)
         }
-    }
-    
-    func addSegmentedProgressView() {
-        let newView = UIView()
-        newView.translatesAutoresizingMaskIntoConstraints = false
-        
-        newView.backgroundColor = .black
-        
-        view.addSubview(newView)
-        
-        newView.heightAnchor.constraint(equalToConstant: 4).isActive = true
-        newView.topAnchor.constraint(equalTo: recordContainerView.topAnchor, constant: 1).isActive = true
-        
-        if segmentedProgressViews.isEmpty {
-            newView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-            currentProgressViewWidthConstraint = newView.widthAnchor.constraint(equalToConstant: 0)
-            currentProgressViewWidthConstraint?.isActive = true
-        } else {
-            let lastView = segmentedProgressViews.last!
-            newView.leadingAnchor.constraint(equalTo: lastView.trailingAnchor, constant: 1).isActive = true
-            currentProgressViewWidthConstraint = newView.widthAnchor.constraint(equalToConstant: 0)
-            currentProgressViewWidthConstraint?.isActive = true
-        }
-        
-        segmentedProgressViews.append(newView)
-
-        view.setNeedsUpdateConstraints()
     }
     
     func exportDidFinish(session: AVAssetExportSession) {
@@ -179,21 +151,14 @@ class ViewController: UIViewController {
     }
     
     func cleanUpForNewSession() {
-        currentProgressViewWidthConstraint = nil
         
-        for progressViewSegment in segmentedProgressViews {
-            progressViewSegment.removeFromSuperview()
-        }
-        
-        segmentedProgressViews.removeAll()
+        videoSegmentProgressBar.reset()
         
         currentTotalDuration = kCMTimeZero
         
         videoSegments.removeAll()
         
         movieFileOutput.maxRecordedDuration = CMTimeSubtract(maxVideoDuration, currentTotalDuration)
-        
-        addSegmentedProgressView()
         
         nextBarButtonItem.isEnabled = false
     }
@@ -279,11 +244,8 @@ extension ViewController: AVCaptureFileOutputRecordingDelegate {
         let videoAsset = AVAsset(url: outputFileURL)
         
         guard Float(CMTimeGetSeconds(videoAsset.duration)) >= 0.3 else {
-            print("remove videos less than 1/3 second")
-            
-            let removedProgressView = segmentedProgressViews.removeLast()
-            removedProgressView.removeFromSuperview()
-            addSegmentedProgressView()
+            print("remove videos that don't pass 1/3 second threshold")
+            videoSegmentProgressBar.lastVideoSegmentInvalidated()
             
             return
         }
@@ -292,7 +254,7 @@ extension ViewController: AVCaptureFileOutputRecordingDelegate {
         currentTotalDuration = CMTimeAdd(currentTotalDuration, videoAsset.duration)
         movieFileOutput.maxRecordedDuration = CMTimeSubtract(maxVideoDuration, currentTotalDuration)
         
-        addSegmentedProgressView()
+        videoSegmentProgressBar.newVideoSegmentProgressView()
         
         nextBarButtonItem.isEnabled = !videoSegments.isEmpty ? true : false
     }

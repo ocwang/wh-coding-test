@@ -42,11 +42,22 @@
                                             <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YQ9-S9-1GB"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ght-r9-VJM" customClass="VideoSegmentProgressBar" customModule="WhaleCodingTest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="5"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.36735491069999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="5" id="bGd-4K-ZtM"/>
+                                            <constraint firstAttribute="height" constant="5" id="uRm-Nu-3wz"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="BQl-Ru-jFk"/>
+                                    <constraint firstItem="Ght-r9-VJM" firstAttribute="leading" secondItem="FtS-pe-G4S" secondAttribute="leading" id="FfT-Tu-EDT"/>
+                                    <constraint firstItem="Ght-r9-VJM" firstAttribute="top" secondItem="FtS-pe-G4S" secondAttribute="top" id="J19-1Y-cKa"/>
                                     <constraint firstItem="67G-VN-kNa" firstAttribute="centerY" secondItem="FtS-pe-G4S" secondAttribute="centerY" id="O8U-AF-dRD"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ght-r9-VJM" secondAttribute="trailing" id="RfF-rN-fES"/>
                                     <constraint firstItem="67G-VN-kNa" firstAttribute="centerX" secondItem="FtS-pe-G4S" secondAttribute="centerX" id="Ya0-E2-ote"/>
                                 </constraints>
                             </view>
@@ -75,6 +86,7 @@
                         <outlet property="nextBarButtonItem" destination="TMe-NJ-hxZ" id="IjS-iq-tiD"/>
                         <outlet property="recordContainerView" destination="FtS-pe-G4S" id="hBf-I4-cGS"/>
                         <outlet property="toggleRecordButton" destination="67G-VN-kNa" id="79f-bU-dJQ"/>
+                        <outlet property="videoSegmentProgressBar" destination="Ght-r9-VJM" id="2or-fM-ZQf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
