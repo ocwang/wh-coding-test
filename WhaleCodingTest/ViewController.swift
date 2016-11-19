@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     
     var currentTotalDuration = kCMTimeZero
     
-    let maxVideoDuration = CMTime(seconds: 15, preferredTimescale: 1)
+    let maxVideoDuration = CMTime(seconds: 60, preferredTimescale: 1)
     
     var currentProgressViewWidthConstraint: NSLayoutConstraint?
     
@@ -158,13 +158,36 @@ class ViewController: UIViewController {
                 let creationRequest = PHAssetCreationRequest.forAsset()
                 creationRequest.addResource(with: .video, fileURL: session.outputURL!, options: options)
                 
+                DispatchQueue.main.async {
+                    self.cleanUpForNewSession()
+                }
+
                 self.presentAlertController(withTitle: "Finished merging video segments into one video. Saved into your photo library.")
+                
             }, completionHandler: { success, error in
                 if !success {
                     print("Could not save movie to photo library: \(error)")
                 }
             })
         }
+    }
+    
+    func cleanUpForNewSession() {
+        currentProgressViewWidthConstraint = nil
+        
+        for progressViewSegment in segmentedProgressViews {
+            progressViewSegment.removeFromSuperview()
+        }
+        
+        segmentedProgressViews.removeAll()
+        
+        currentTotalDuration = kCMTimeZero
+        
+        videoSegments.removeAll()
+        
+        movieFileOutput.maxRecordedDuration = CMTimeSubtract(maxVideoDuration, currentTotalDuration)
+        
+        addSegmentedProgressView()
     }
     
     // MARK: - IBActions
