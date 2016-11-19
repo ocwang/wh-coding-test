@@ -1,0 +1,391 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1B3D11064F56891466F870FD /* Pods_WhaleCodingTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBF87EC3E787BFDF8CAF6E27 /* Pods_WhaleCodingTest.framework */; };
+		CA54043C1DDFAAA100564843 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54043B1DDFAAA100564843 /* AppDelegate.swift */; };
+		CA54043E1DDFAAA100564843 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54043D1DDFAAA100564843 /* ViewController.swift */; };
+		CA5404411DDFAAA100564843 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA54043F1DDFAAA100564843 /* Main.storyboard */; };
+		CA5404431DDFAAA100564843 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA5404421DDFAAA100564843 /* Assets.xcassets */; };
+		CA5404461DDFAAA100564843 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA5404441DDFAAA100564843 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		239052453E6CD1B8D3F9B68F /* Pods-WhaleCodingTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhaleCodingTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhaleCodingTest/Pods-WhaleCodingTest.release.xcconfig"; sourceTree = "<group>"; };
+		832A58064728E229BF68D4F9 /* Pods-WhaleCodingTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhaleCodingTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhaleCodingTest/Pods-WhaleCodingTest.debug.xcconfig"; sourceTree = "<group>"; };
+		CA5404381DDFAAA100564843 /* WhaleCodingTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhaleCodingTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA54043B1DDFAAA100564843 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CA54043D1DDFAAA100564843 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CA5404401DDFAAA100564843 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CA5404421DDFAAA100564843 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CA5404451DDFAAA100564843 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CA5404471DDFAAA100564843 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CAD133071DDFB3290096EA17 /* WhaleCodingTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WhaleCodingTest-Bridging-Header.h"; sourceTree = "<group>"; };
+		DBF87EC3E787BFDF8CAF6E27 /* Pods_WhaleCodingTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhaleCodingTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CA5404351DDFAAA100564843 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B3D11064F56891466F870FD /* Pods_WhaleCodingTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A9CA4298CB9808EC70D16E45 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				832A58064728E229BF68D4F9 /* Pods-WhaleCodingTest.debug.xcconfig */,
+				239052453E6CD1B8D3F9B68F /* Pods-WhaleCodingTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BE0E210C40404DFB329644AE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DBF87EC3E787BFDF8CAF6E27 /* Pods_WhaleCodingTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CA54042F1DDFAAA100564843 = {
+			isa = PBXGroup;
+			children = (
+				CA54043A1DDFAAA100564843 /* WhaleCodingTest */,
+				CA5404391DDFAAA100564843 /* Products */,
+				A9CA4298CB9808EC70D16E45 /* Pods */,
+				BE0E210C40404DFB329644AE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CA5404391DDFAAA100564843 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CA5404381DDFAAA100564843 /* WhaleCodingTest.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CA54043A1DDFAAA100564843 /* WhaleCodingTest */ = {
+			isa = PBXGroup;
+			children = (
+				CA54043B1DDFAAA100564843 /* AppDelegate.swift */,
+				CA54043D1DDFAAA100564843 /* ViewController.swift */,
+				CAD133071DDFB3290096EA17 /* WhaleCodingTest-Bridging-Header.h */,
+				CA54043F1DDFAAA100564843 /* Main.storyboard */,
+				CA5404421DDFAAA100564843 /* Assets.xcassets */,
+				CA5404441DDFAAA100564843 /* LaunchScreen.storyboard */,
+				CA5404471DDFAAA100564843 /* Info.plist */,
+			);
+			path = WhaleCodingTest;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CA5404371DDFAAA100564843 /* WhaleCodingTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA54044A1DDFAAA100564843 /* Build configuration list for PBXNativeTarget "WhaleCodingTest" */;
+			buildPhases = (
+				2BA8D2387AFA6C79B402CACB /* [CP] Check Pods Manifest.lock */,
+				CA5404341DDFAAA100564843 /* Sources */,
+				CA5404351DDFAAA100564843 /* Frameworks */,
+				CA5404361DDFAAA100564843 /* Resources */,
+				5B63344FCDAC87B025C1F3D7 /* [CP] Embed Pods Frameworks */,
+				440A849DD59E40CDBE31C9DE /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WhaleCodingTest;
+			productName = WhaleCodingTest;
+			productReference = CA5404381DDFAAA100564843 /* WhaleCodingTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CA5404301DDFAAA100564843 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = ocwang;
+				TargetAttributes = {
+					CA5404371DDFAAA100564843 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = QXSA84SJDA;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = CA5404331DDFAAA100564843 /* Build configuration list for PBXProject "WhaleCodingTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CA54042F1DDFAAA100564843;
+			productRefGroup = CA5404391DDFAAA100564843 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CA5404371DDFAAA100564843 /* WhaleCodingTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CA5404361DDFAAA100564843 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA5404461DDFAAA100564843 /* LaunchScreen.storyboard in Resources */,
+				CA5404431DDFAAA100564843 /* Assets.xcassets in Resources */,
+				CA5404411DDFAAA100564843 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2BA8D2387AFA6C79B402CACB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		440A849DD59E40CDBE31C9DE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhaleCodingTest/Pods-WhaleCodingTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5B63344FCDAC87B025C1F3D7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhaleCodingTest/Pods-WhaleCodingTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CA5404341DDFAAA100564843 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA54043E1DDFAAA100564843 /* ViewController.swift in Sources */,
+				CA54043C1DDFAAA100564843 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CA54043F1DDFAAA100564843 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA5404401DDFAAA100564843 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CA5404441DDFAAA100564843 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA5404451DDFAAA100564843 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CA5404481DDFAAA100564843 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CA5404491DDFAAA100564843 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CA54044B1DDFAAA100564843 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 832A58064728E229BF68D4F9 /* Pods-WhaleCodingTest.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = QXSA84SJDA;
+				INFOPLIST_FILE = WhaleCodingTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ocwang.WhaleCodingTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WhaleCodingTest/WhaleCodingTest-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		CA54044C1DDFAAA100564843 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 239052453E6CD1B8D3F9B68F /* Pods-WhaleCodingTest.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = QXSA84SJDA;
+				INFOPLIST_FILE = WhaleCodingTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ocwang.WhaleCodingTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WhaleCodingTest/WhaleCodingTest-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CA5404331DDFAAA100564843 /* Build configuration list for PBXProject "WhaleCodingTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA5404481DDFAAA100564843 /* Debug */,
+				CA5404491DDFAAA100564843 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA54044A1DDFAAA100564843 /* Build configuration list for PBXNativeTarget "WhaleCodingTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA54044B1DDFAAA100564843 /* Debug */,
+				CA54044C1DDFAAA100564843 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CA5404301DDFAAA100564843 /* Project object */;
+}
