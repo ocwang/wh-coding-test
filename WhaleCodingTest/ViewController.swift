@@ -39,8 +39,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var toggleRecordButton: UIButton!
     
-    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var nextBarButtonItem: UIBarButtonItem!
     
+    @IBOutlet weak var recordContainerView: UIView!
     // MARK: - VC Lifecycle
 
     override func viewDidLoad() {
@@ -132,12 +133,12 @@ class ViewController: UIViewController {
         let newView = UIView()
         newView.translatesAutoresizingMaskIntoConstraints = false
         
-        newView.backgroundColor = .white
+        newView.backgroundColor = .black
         
         view.addSubview(newView)
         
-        newView.heightAnchor.constraint(equalToConstant: 10).isActive = true
-        newView.bottomAnchor.constraint(equalTo: toggleRecordButton.topAnchor, constant: -5).isActive = true
+        newView.heightAnchor.constraint(equalToConstant: 4).isActive = true
+        newView.topAnchor.constraint(equalTo: recordContainerView.topAnchor, constant: 1).isActive = true
         
         if segmentedProgressViews.isEmpty {
             newView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -145,7 +146,7 @@ class ViewController: UIViewController {
             currentProgressViewWidthConstraint?.isActive = true
         } else {
             let lastView = segmentedProgressViews.last!
-            newView.leadingAnchor.constraint(equalTo: lastView.trailingAnchor, constant: 2).isActive = true
+            newView.leadingAnchor.constraint(equalTo: lastView.trailingAnchor, constant: 1).isActive = true
             currentProgressViewWidthConstraint = newView.widthAnchor.constraint(equalToConstant: 0)
             currentProgressViewWidthConstraint?.isActive = true
         }
@@ -193,32 +194,36 @@ class ViewController: UIViewController {
         movieFileOutput.maxRecordedDuration = CMTimeSubtract(maxVideoDuration, currentTotalDuration)
         
         addSegmentedProgressView()
+        
+        nextBarButtonItem.isEnabled = false
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        get {
+            return true
+        }
     }
     
     // MARK: - IBActions
 
-    @IBAction func toggleRecordButtonTapped(_ sender: UIButton) {
+    @IBAction func recordVideo(_ sender: UIButton) {
         guard currentTotalDuration <= maxVideoDuration else {
             self.presentAlertController(withTitle: "Max recording duration reached. Click the orange Done button to create your video.")
             return
         }
         
-        if !movieFileOutput.isRecording {
-            sender.backgroundColor = .red
-            sender.setTitle("Stop Recording", for: .normal)
-            sender.isUserInteractionEnabled = false
-            
-            let outputFileName = NSUUID().uuidString
-            let outputFilePath = (NSTemporaryDirectory() as NSString).appendingPathComponent((outputFileName as NSString).appendingPathExtension("mov")!)
-            movieFileOutput.startRecording(toOutputFileURL: URL(fileURLWithPath: outputFilePath), recordingDelegate: self)
-            
-        } else {
-            movieFileOutput.stopRecording()
-        }
+        guard !movieFileOutput.isRecording else { return }
         
+        let outputFileName = NSUUID().uuidString
+        let outputFilePath = (NSTemporaryDirectory() as NSString).appendingPathComponent((outputFileName as NSString).appendingPathExtension("mov")!)
+        movieFileOutput.startRecording(toOutputFileURL: URL(fileURLWithPath: outputFilePath), recordingDelegate: self)
     }
     
-    @IBAction func doneButtonTapped(_ sender: UIButton) {
+    @IBAction func stopRecording(_ sender: UIButton) {
+        movieFileOutput.stopRecording()
+    }
+    
+    @IBAction func nextButtonTapped(_ sender: UIBarButtonItem) {
         let mixComposition = AVMutableComposition()
         let videoTrack = mixComposition.addMutableTrack(withMediaType: AVMediaTypeVideo,
                                                         preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
@@ -266,20 +271,29 @@ class ViewController: UIViewController {
 
 extension ViewController: AVCaptureFileOutputRecordingDelegate {
     func capture(_ captureOutput: AVCaptureFileOutput!, didStartRecordingToOutputFileAt fileURL: URL!, fromConnections connections: [Any]!) {
-        toggleRecordButton.isUserInteractionEnabled = true
         updateRecordingValues()
     }
     
     func capture(_ captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: URL!, fromConnections connections: [Any]!, error: Error!) {
-        toggleRecordButton.backgroundColor = .green
-        toggleRecordButton.setTitle("Start Recording", for: .normal)
-        toggleRecordButton.backgroundColor = .white
         
         let videoAsset = AVAsset(url: outputFileURL)
+        
+        guard Float(CMTimeGetSeconds(videoAsset.duration)) >= 0.3 else {
+            print("remove videos less than 1/3 second")
+            
+            let removedProgressView = segmentedProgressViews.removeLast()
+            removedProgressView.removeFromSuperview()
+            addSegmentedProgressView()
+            
+            return
+        }
+        
         videoSegments.append(videoAsset)
         currentTotalDuration = CMTimeAdd(currentTotalDuration, videoAsset.duration)
         movieFileOutput.maxRecordedDuration = CMTimeSubtract(maxVideoDuration, currentTotalDuration)
         
         addSegmentedProgressView()
+        
+        nextBarButtonItem.isEnabled = !videoSegments.isEmpty ? true : false
     }
 }

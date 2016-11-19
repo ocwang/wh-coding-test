@@ -13,6 +13,7 @@
 		CA5404411DDFAAA100564843 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA54043F1DDFAAA100564843 /* Main.storyboard */; };
 		CA5404431DDFAAA100564843 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA5404421DDFAAA100564843 /* Assets.xcassets */; };
 		CA5404461DDFAAA100564843 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA5404441DDFAAA100564843 /* LaunchScreen.storyboard */; };
+		CAD0CBF11DE0E66B00CE2A15 /* VideoSegmentProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD0CBF01DE0E66B00CE2A15 /* VideoSegmentProgressBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +26,7 @@
 		CA5404421DDFAAA100564843 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA5404451DDFAAA100564843 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA5404471DDFAAA100564843 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CAD133071DDFB3290096EA17 /* WhaleCodingTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WhaleCodingTest-Bridging-Header.h"; sourceTree = "<group>"; };
+		CAD0CBF01DE0E66B00CE2A15 /* VideoSegmentProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSegmentProgressBar.swift; sourceTree = "<group>"; };
 		DBF87EC3E787BFDF8CAF6E27 /* Pods_WhaleCodingTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhaleCodingTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -81,7 +82,7 @@
 			children = (
 				CA54043B1DDFAAA100564843 /* AppDelegate.swift */,
 				CA54043D1DDFAAA100564843 /* ViewController.swift */,
-				CAD133071DDFB3290096EA17 /* WhaleCodingTest-Bridging-Header.h */,
+				CAD0CBF01DE0E66B00CE2A15 /* VideoSegmentProgressBar.swift */,
 				CA54043F1DDFAAA100564843 /* Main.storyboard */,
 				CA5404421DDFAAA100564843 /* Assets.xcassets */,
 				CA5404441DDFAAA100564843 /* LaunchScreen.storyboard */,
@@ -216,6 +217,7 @@
 			files = (
 				CA54043E1DDFAAA100564843 /* ViewController.swift in Sources */,
 				CA54043C1DDFAAA100564843 /* AppDelegate.swift in Sources */,
+				CAD0CBF11DE0E66B00CE2A15 /* VideoSegmentProgressBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,7 +346,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ocwang.WhaleCodingTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "WhaleCodingTest/WhaleCodingTest-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -359,7 +360,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ocwang.WhaleCodingTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "WhaleCodingTest/WhaleCodingTest-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
