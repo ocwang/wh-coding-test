@@ -80,21 +80,26 @@ class ViewController: UIViewController {
         
         // TODO: check if mic is automatically added as well
         let cameraDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+        let micDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeAudio)
         
-        var input: AVCaptureDeviceInput!
+        var cameraInput: AVCaptureDeviceInput!
+        var audioInput: AVCaptureDeviceInput!
         do {
-            input = try AVCaptureDeviceInput(device: cameraDevice)
+            cameraInput = try AVCaptureDeviceInput(device: cameraDevice)
+            audioInput = try AVCaptureDeviceInput(device: micDevice)
         } catch let error as NSError {
             fatalError("Error: \(error.localizedDescription)")
         }
         
-        if captureSession.canAddInput(input) {
-            captureSession.addInput(input)
+        if captureSession.canAddInput(cameraInput) {
+            captureSession.addInput(cameraInput)
+        }
+        
+        if captureSession.canAddInput(audioInput) {
+            captureSession.addInput(audioInput)
         }
         
         movieFileOutput = AVCaptureMovieFileOutput()
-        // this should be time left
-        
         movieFileOutput.maxRecordedDuration = CMTimeSubtract(maxVideoDuration, currentTotalDuration)
         
         if captureSession.canAddOutput(movieFileOutput) {
@@ -218,11 +223,18 @@ class ViewController: UIViewController {
         let videoTrack = mixComposition.addMutableTrack(withMediaType: AVMediaTypeVideo,
                                                         preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
         
+        let audioTrack = mixComposition.addMutableTrack(withMediaType: AVMediaTypeAudio,
+                                                        preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
+        
         var totalDuration = kCMTimeZero
         for asset in videoSegments {
             do {
                 try videoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, asset.duration),
                                                of: asset.tracks(withMediaType: AVMediaTypeVideo)[0] ,
+                                               at: totalDuration)
+                
+                try audioTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, asset.duration),
+                                               of: asset.tracks(withMediaType: AVMediaTypeAudio)[0] ,
                                                at: totalDuration)
                 
                 totalDuration = CMTimeAdd(totalDuration, asset.duration)
